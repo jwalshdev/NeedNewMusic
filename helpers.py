@@ -20,7 +20,7 @@ def checkUpdateLog(artist, date, alb):
         rdate = df[artist][0]
 
     if datetime.datetime.strptime(date, '%Y-%m-%d') > datetime.datetime.strptime(rdate, '%Y-%m-%d'):
-        print(f"\t\t{alb} by {artist} is new as of {date}.")
+        input(f"\t\t{alb} by {artist} is new as of {date}.\nPress 'enter' to continue.")
         df[artist] = [date]
         print()
     df.to_sql('dates', conn, if_exists='replace', index=False)
